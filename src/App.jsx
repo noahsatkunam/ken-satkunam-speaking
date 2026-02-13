@@ -5,7 +5,17 @@ const CALENDLY_URL = 'https://calendly.com/PLACEHOLDER/speaking-inquiry'
 const EMAIL = 'info@northstar-tg.com'
 const PHONE = '(701) 237-9096'
 
-/* ─── Scroll reveal ─── */
+/* Images */
+const IMG = {
+  hero: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1920&q=80&fit=crop',
+  speaking: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&q=80&fit=crop',
+  cyber: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1200&q=80&fit=crop',
+  ai: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=80&fit=crop',
+  business: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80&fit=crop',
+  healthcare: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=80&fit=crop',
+}
+
+/* Scroll reveal */
 function useReveal() {
   const ref = useRef(null)
   useEffect(() => {
@@ -25,7 +35,7 @@ function Reveal({ children, className = '' }) {
   return <div ref={ref} className={`reveal ${className}`}>{children}</div>
 }
 
-/* ─── Icons ─── */
+/* Icons */
 const I = ({ d, className = 'w-6 h-6' }) => (
   <svg className={className} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" d={d} />
@@ -45,97 +55,29 @@ const DownloadIcon = (p) => <I {...p} d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13
 const StarIcon = (p) => <I {...p} d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
 const ChartIcon = (p) => <I {...p} d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
 
-/* ─── Data ─── */
+/* Data */
 const TOPICS = [
-  {
-    num: '01',
-    title: 'Protect to Propel™',
-    tag: 'Flagship Keynote',
-    audience: 'Executives & Business Owners',
-    duration: '30 / 45 / 60 min',
-    desc: 'Most organizations treat cybersecurity as a cost center and AI as hype. This keynote flips both — showing leaders how security and AI become a strategic growth engine when aligned with business objectives.',
-    takeaways: ['Reframe security from expense to competitive advantage', 'Practical AI use cases you can implement this quarter', 'The 3-pillar framework: Protect → Reduce Friction → Propel Growth'],
-    icon: RocketIcon,
-  },
-  {
-    num: '02',
-    title: 'The New HIPAA Reality',
-    tag: 'Healthcare Focus',
-    audience: 'Healthcare IT & Compliance Leaders',
-    duration: '30 / 45 / 60 min',
-    desc: 'HIPAA enforcement is intensifying. This talk gives healthcare leaders a clear, actionable roadmap for regulatory readiness — without the jargon or paralysis.',
-    takeaways: ['Current enforcement trends and what they mean for you', 'Risk assessment essentials for non-IT professionals', 'Step-by-step compliance roadmap'],
-    icon: ShieldIcon,
-  },
-  {
-    num: '03',
-    title: 'AI for SMB Leaders',
-    tag: 'Practical & Profitable',
-    audience: 'Business Owners & Operators',
-    duration: '30 / 45 / 60 min',
-    desc: 'Cut through the AI noise. This session delivers 10-20 real use cases that SMBs can implement immediately — securely, practically, and profitably.',
-    takeaways: ['10-20 actionable AI use cases for your business', 'How to evaluate AI tools without the hype', 'Security guardrails for safe AI adoption'],
-    icon: LightIcon,
-  },
-  {
-    num: '04',
-    title: 'Cyber Incident Readiness',
-    tag: 'Crisis Preparedness',
-    audience: 'Executive & IT Leadership',
-    duration: '30 / 45 / 60 min',
-    desc: 'If you\'re breached tomorrow, is your team ready? This talk replaces panic with a clear, rehearsed game plan — from detection through recovery.',
-    takeaways: ['Incident response plan essentials', 'First 72 hours: what to do (and not do)', 'Cyber insurance and legal considerations'],
-    icon: ShieldIcon,
-  },
-  {
-    num: '05',
-    title: 'From IT Support to Strategic Advantage',
-    tag: 'MSP & IT Leadership',
-    audience: 'MSPs & IT Directors',
-    duration: '30 / 45 / 60 min',
-    desc: 'Technology should drive the business — not just keep the lights on. This session provides an operational maturity framework for IT leaders ready to level up.',
-    takeaways: ['Operational maturity assessment framework', 'Moving from reactive to strategic IT', 'Building executive-level influence as a tech leader'],
-    icon: ChartIcon,
-  },
+  { num: '01', title: 'Protect to Propel™', tag: 'Flagship Keynote', audience: 'Executives & Business Owners', duration: '30 / 45 / 60 min', desc: 'Most organizations treat cybersecurity as a cost center and AI as hype. This keynote flips both — showing leaders how security and AI become a strategic growth engine when aligned with business objectives.', takeaways: ['Reframe security from expense to competitive advantage', 'Practical AI use cases you can implement this quarter', 'The 3-pillar framework: Protect → Reduce Friction → Propel Growth'], icon: RocketIcon },
+  { num: '02', title: 'The New HIPAA Reality', tag: 'Healthcare Focus', audience: 'Healthcare IT & Compliance', duration: '30 / 45 / 60 min', desc: 'HIPAA enforcement is intensifying. This talk gives healthcare leaders a clear, actionable roadmap for regulatory readiness — without the jargon or paralysis.', takeaways: ['Current enforcement trends and what they mean for you', 'Risk assessment essentials for non-IT professionals', 'Step-by-step compliance roadmap'], icon: ShieldIcon },
+  { num: '03', title: 'AI for SMB Leaders', tag: 'Practical & Profitable', audience: 'Business Owners & Operators', duration: '30 / 45 / 60 min', desc: 'Cut through the AI noise. This session delivers 10-20 real use cases that SMBs can implement immediately — securely, practically, and profitably.', takeaways: ['10-20 actionable AI use cases for your business', 'How to evaluate AI tools without the hype', 'Security guardrails for safe AI adoption'], icon: LightIcon },
+  { num: '04', title: 'Cyber Incident Readiness', tag: 'Crisis Preparedness', audience: 'Executive & IT Leadership', duration: '30 / 45 / 60 min', desc: 'If you\'re breached tomorrow, is your team ready? This talk replaces panic with a clear, rehearsed game plan — from detection through recovery.', takeaways: ['Incident response plan essentials', 'First 72 hours: what to do (and not do)', 'Cyber insurance and legal considerations'], icon: ShieldIcon },
+  { num: '05', title: 'From IT Support to Strategic Advantage', tag: 'MSP & IT Leadership', audience: 'MSPs & IT Directors', duration: '30 / 45 / 60 min', desc: 'Technology should drive the business — not just keep the lights on. This session provides an operational maturity framework for IT leaders ready to level up.', takeaways: ['Operational maturity assessment framework', 'Moving from reactive to strategic IT', 'Building executive-level influence as a tech leader'], icon: ChartIcon },
 ]
 
 const TESTIMONIALS = [
-  {
-    quote: "NorthStar Technology Group has surpassed expectations to not only rapidly respond to helpdesk needs from staff but also effectively work with us to resolve IT security and HIPAA risks in a timely manner.",
-    name: "Director of Human Resources",
-    org: "St. Luke's Healthcare",
-  },
-  {
-    quote: "Managing technology for 200 employees in five locations with many remote employees is a difficult task. NorthStar Technology Group provides the tools and people to make this job so much easier.",
-    name: "Lynn, Chief Financial Officer",
-    org: "Lakeland Mental Health Services",
-  },
-  {
-    quote: "NorthStar Technology Group doesn't assume I know all the information technology lingo; they make recommendations that are easy to understand and practical to our business.",
-    name: "Chief Financial Officer",
-    org: "Gary Cavett and Company CPAs",
-  },
-  {
-    quote: "Ken is compassionate and has great integrity, always striving to do the right thing for his clients and in his business partnerships.",
-    name: "Industry Partner",
-    org: "LinkedIn Recommendation",
-  },
+  { quote: "NorthStar Technology Group has surpassed expectations to not only rapidly respond to helpdesk needs from staff but also effectively work with us to resolve IT security and HIPAA risks in a timely manner.", name: "Director of Human Resources", org: "St. Luke's Healthcare" },
+  { quote: "Managing technology for 200 employees in five locations with many remote employees is a difficult task. NorthStar Technology Group provides the tools and people to make this job so much easier.", name: "Lynn, Chief Financial Officer", org: "Lakeland Mental Health Services" },
+  { quote: "NorthStar Technology Group doesn't assume I know all the information technology lingo; they make recommendations that are easy to understand and practical to our business.", name: "Chief Financial Officer", org: "Gary Cavett and Company CPAs" },
+  { quote: "Ken is compassionate and has great integrity, always striving to do the right thing for his clients and in his business partnerships.", name: "Industry Partner", org: "LinkedIn Recommendation" },
 ]
 
 const FORMATS = [
-  { name: 'Keynotes', desc: 'High-energy, main-stage presentations for conferences and events', icon: MicIcon },
-  { name: 'Breakout Sessions', desc: 'Interactive, focused sessions for smaller groups within larger events', icon: UsersIcon },
-  { name: 'Panel Discussions', desc: 'Expert perspective alongside other industry leaders', icon: UsersIcon },
-  { name: 'Webinars', desc: 'Virtual presentations for distributed teams and online events', icon: LightIcon },
-  { name: 'Executive Workshops', desc: 'Hands-on sessions for leadership teams and boards', icon: BookIcon },
-  { name: 'Private Board Briefings', desc: 'Confidential strategy sessions for boards and C-suites', icon: ShieldIcon },
-]
-
-const CREDENTIALS = [
-  { label: 'Years in IT', value: '30+' },
-  { label: 'Inc. 5000', value: '2×' },
-  { label: 'Orgs Secured', value: '100+' },
-  { label: 'Employees Led', value: '23K' },
+  { name: 'Keynotes', desc: 'High-energy, main-stage presentations', icon: MicIcon },
+  { name: 'Breakout Sessions', desc: 'Interactive sessions for smaller groups', icon: UsersIcon },
+  { name: 'Panel Discussions', desc: 'Expert perspective alongside industry leaders', icon: UsersIcon },
+  { name: 'Webinars', desc: 'Virtual presentations for distributed teams', icon: LightIcon },
+  { name: 'Executive Workshops', desc: 'Hands-on sessions for leadership teams', icon: BookIcon },
+  { name: 'Board Briefings', desc: 'Confidential strategy sessions for C-suites', icon: ShieldIcon },
 ]
 
 function App() {
@@ -149,151 +91,163 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-midnight text-white font-sans antialiased">
+    <div className="min-h-screen bg-cream text-text font-sans antialiased">
 
-      {/* ─── NAV ─── */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-midnight/95 backdrop-blur-xl border-b border-white/5' : 'bg-transparent'}`}>
+      {/* NAV */}
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200/60 shadow-sm' : 'bg-transparent'}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-          <a href="#" className="font-bold text-lg tracking-tight">
-            Ken <span className="gradient-text">Satkunam</span>
+          <a href="#" className={`font-bold text-lg tracking-tight transition ${scrolled ? 'text-navy' : 'text-white'}`}>
+            Ken <span className={scrolled ? 'text-gold' : 'text-gold-light'}>Satkunam</span>
           </a>
-          <div className="hidden md:flex items-center gap-7 text-sm font-medium text-gray-400">
-            <a href="#about" className="hover:text-accent transition">About</a>
-            <a href="#keynote" className="hover:text-accent transition">Keynote</a>
-            <a href="#topics" className="hover:text-accent transition">Topics</a>
-            <a href="#testimonials" className="hover:text-accent transition">Testimonials</a>
-            <a href="#contact" className="hover:text-accent transition">Contact</a>
-            <PopupButton
-              url={CALENDLY_URL}
-              rootElement={document.getElementById('root')}
-              text="Book Ken"
-              className="btn-accent text-white px-5 py-2 rounded-lg font-semibold cursor-pointer text-sm"
-            />
+          <div className={`hidden md:flex items-center gap-7 text-sm font-medium ${scrolled ? 'text-gray-500' : 'text-white/70'}`}>
+            <a href="#about" className="hover:text-gold transition">About</a>
+            <a href="#keynote" className="hover:text-gold transition">Keynote</a>
+            <a href="#topics" className="hover:text-gold transition">Topics</a>
+            <a href="#testimonials" className="hover:text-gold transition">Testimonials</a>
+            <PopupButton url={CALENDLY_URL} rootElement={document.getElementById('root')} text="Book Ken" className="btn-gold text-white px-5 py-2 rounded-lg font-semibold cursor-pointer text-sm" />
           </div>
-          <button onClick={() => setMobileMenu(!mobileMenu)} className="md:hidden p-2 text-gray-400">
+          <button onClick={() => setMobileMenu(!mobileMenu)} className={`md:hidden p-2 ${scrolled ? 'text-gray-600' : 'text-white'}`}>
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-              {mobileMenu
-                ? <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                : <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />}
+              {mobileMenu ? <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" /> : <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />}
             </svg>
           </button>
         </div>
         {mobileMenu && (
-          <div className="md:hidden border-t border-white/5 bg-midnight/98 backdrop-blur-xl px-4 pb-4 space-y-1">
-            {['About','Keynote','Topics','Testimonials','Contact'].map(i => (
-              <a key={i} href={`#${i.toLowerCase()}`} onClick={() => setMobileMenu(false)} className="block py-3 text-gray-400 hover:text-white transition text-sm font-medium">{i}</a>
+          <div className="md:hidden border-t border-gray-200 bg-white px-4 pb-4 space-y-1">
+            {['About','Keynote','Topics','Testimonials'].map(i => (
+              <a key={i} href={`#${i.toLowerCase()}`} onClick={() => setMobileMenu(false)} className="block py-3 text-gray-500 hover:text-gold transition text-sm font-medium">{i}</a>
             ))}
-            <PopupButton url={CALENDLY_URL} rootElement={document.getElementById('root')} text="Book Ken" className="block w-full btn-accent text-white text-center px-5 py-3 rounded-lg font-semibold cursor-pointer mt-2 text-sm" />
+            <PopupButton url={CALENDLY_URL} rootElement={document.getElementById('root')} text="Book Ken" className="block w-full btn-gold text-white text-center px-5 py-3 rounded-lg font-semibold cursor-pointer mt-2 text-sm" />
           </div>
         )}
       </nav>
 
-      {/* ─── HERO ─── */}
-      <header className="relative pt-28 pb-20 sm:pt-40 sm:pb-32 overflow-hidden">
-        <div className="absolute top-20 left-[10%] w-72 h-72 bg-accent/10 rounded-full blur-[100px] animate-float" />
-        <div className="absolute top-40 right-[15%] w-96 h-96 bg-blue-500/8 rounded-full blur-[120px] animate-float-delayed" />
-        <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage:'url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0 0h40v40H0z\' fill=\'none\' stroke=\'%23fff\' stroke-width=\'.5\'/%3E%3C/svg%3E")'}} />
-
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-accent/10 text-accent text-sm font-semibold px-4 py-2 rounded-full mb-8 animate-fade-in-up border border-accent/20">
-                <ShieldIcon className="w-4 h-4" />
-                Cybersecurity & AI Strategist
-              </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.1] tracking-tight animate-fade-in-up" style={{animationDelay:'0.1s'}}>
-                Protect to Propel™
-              </h1>
-              <p className="mt-3 text-xl sm:text-2xl text-gray-300 font-medium animate-fade-in-up" style={{animationDelay:'0.15s'}}>
-                Cybersecurity & AI That Drives <span className="gradient-text">Business Growth</span>
-              </p>
-              <p className="mt-6 text-lg text-gray-400 leading-relaxed max-w-xl animate-fade-in-up" style={{animationDelay:'0.2s'}}>
-                Ken Satkunam helps organizations turn cybersecurity and AI from cost centers into competitive advantages. Strategic, practical, and executive-friendly.
-              </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{animationDelay:'0.3s'}}>
-                <PopupButton
-                  url={CALENDLY_URL}
-                  rootElement={document.getElementById('root')}
-                  text="Book Ken for Your Event →"
-                  className="btn-accent text-white font-bold px-8 py-4 rounded-xl text-lg cursor-pointer text-center"
-                />
-                <a href="#media-kit" className="btn-outline inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white font-semibold px-8 py-4 rounded-xl text-lg">
-                  <DownloadIcon className="w-5 h-5" />
-                  Speaker Kit
-                </a>
-              </div>
+      {/* HERO — full-bleed image */}
+      <header className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={IMG.hero} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40" />
+        </div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 py-32">
+          <div className="max-w-2xl">
+            <div className="gold-divider mb-8 animate-fade-in-up" />
+            <p className="text-gold-light text-sm font-semibold tracking-widest uppercase mb-4 animate-fade-in-up" style={{animationDelay:'0.05s'}}>
+              Cybersecurity & AI Strategist
+            </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight text-white animate-fade-in-up" style={{animationDelay:'0.1s'}}>
+              Protect to<br/>Propel™
+            </h1>
+            <p className="mt-6 text-xl text-white/80 leading-relaxed animate-fade-in-up" style={{animationDelay:'0.2s'}}>
+              Ken Satkunam helps organizations turn cybersecurity and AI from cost centers into <strong className="text-white">competitive advantages</strong>.
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{animationDelay:'0.3s'}}>
+              <PopupButton url={CALENDLY_URL} rootElement={document.getElementById('root')} text="Book Ken for Your Event →" className="btn-gold text-white font-bold px-8 py-4 rounded-xl text-lg cursor-pointer text-center" />
+              <a href="#media-kit" className="inline-flex items-center justify-center gap-2 border border-white/20 hover:border-white/40 text-white font-semibold px-8 py-4 rounded-xl text-lg transition">
+                <DownloadIcon className="w-5 h-5" />
+                Speaker Kit
+              </a>
             </div>
-            {/* Headshot placeholder */}
-            <div className="hidden lg:flex justify-center animate-fade-in-up" style={{animationDelay:'0.4s'}}>
-              <div className="w-80 h-96 rounded-2xl bg-gradient-to-br from-midnight-lighter to-midnight border border-white/10 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-accent/5 to-transparent" />
-                <div className="text-center relative z-10">
-                  <div className="w-32 h-32 mx-auto rounded-full bg-midnight-lighter border-2 border-accent/20 flex items-center justify-center mb-4">
-                    <span className="text-4xl font-bold gradient-text">KS</span>
-                  </div>
-                  <p className="text-white font-bold text-lg">Ken Satkunam</p>
-                  <p className="text-accent text-sm font-medium">CISM</p>
-                  <p className="text-gray-500 text-xs mt-1">CEO, NorthStar Technology Group</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Credential bar */}
-          <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 animate-fade-in-up" style={{animationDelay:'0.5s'}}>
-            {CREDENTIALS.map(({ label, value }) => (
-              <div key={label} className="glass-card rounded-xl p-4 text-center">
-                <div className="text-2xl sm:text-3xl font-extrabold gradient-text">{value}</div>
-                <div className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wider">{label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </header>
 
-      {/* ─── ABOUT / AUTHORITY ─── */}
-      <section id="about" className="py-16 sm:py-24 bg-midnight-light">
+      {/* CREDENTIAL BAR */}
+      <section className="bg-navy text-white py-6 border-y border-white/5">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <Reveal>
-            <div className="text-center max-w-2xl mx-auto mb-14">
-              <p className="text-accent text-sm font-semibold tracking-wider uppercase mb-3">About Ken</p>
-              <h2 className="text-3xl sm:text-4xl font-bold">Trusted by Leaders. Proven in the Field.</h2>
-            </div>
-          </Reveal>
-          <div className="grid lg:grid-cols-2 gap-10">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+            {[
+              { val: '30+', label: 'Years in IT' },
+              { val: '2×', label: 'Inc. 5000 Honoree' },
+              { val: '100+', label: 'Organizations Secured' },
+              { val: '23K', label: 'Employees Led as CIO' },
+            ].map(({ val, label }) => (
+              <div key={label}>
+                <div className="text-2xl sm:text-3xl font-extrabold gold-text">{val}</div>
+                <div className="text-xs text-white/50 mt-1 font-medium tracking-wide uppercase">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section id="about" className="py-20 sm:py-28 bg-warm">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
             <Reveal>
-              <div className="space-y-4 text-gray-400 leading-relaxed">
-                <p className="text-lg">
-                  <strong className="text-white">Ken Satkunam, CISM</strong> is the CEO and Founder of <strong className="text-white">NorthStar Technology Group</strong>, a 2× Inc. 5000 cybersecurity and managed IT firm based in Fargo, North Dakota.
-                </p>
-                <p>
-                  With <strong className="text-white">30+ years</strong> in information technology — serving in nearly every IT role from technical support to CIO for healthcare organizations as large as <strong className="text-white">23,000 employees</strong> (including Banner Health) — Ken brings a rare combination of deep technical expertise and executive-level business acumen.
-                </p>
-                <p>
-                  Today, NorthStar secures <strong className="text-white">100+ organizations</strong> across healthcare, legal, and financial services. Ken is a published author, HCCA conference speaker, and the creator of the <strong className="text-white">Protect to Propel™</strong> framework — a strategic approach that transforms security and AI from cost centers into growth engines.
-                </p>
-                <p>
-                  His mission: help business leaders — especially in rural healthcare — protect their organizations and propel them forward with confidence.
-                </p>
+              <div className="relative">
+                <img src={IMG.speaking} alt="Ken Satkunam presenting" className="w-full rounded-2xl shadow-xl" />
+                <div className="absolute -bottom-6 -right-6 bg-navy text-white rounded-xl px-6 py-4 shadow-lg hidden sm:block">
+                  <p className="text-gold-light text-xs font-bold tracking-widest uppercase">Published Author</p>
+                  <p className="text-sm mt-1 text-white/80">Cyber Attack Prevention</p>
+                </div>
               </div>
             </Reveal>
             <Reveal>
-              <div className="space-y-4">
+              <div>
+                <div className="gold-divider mb-6" />
+                <p className="text-gold text-sm font-semibold tracking-widest uppercase mb-3">About Ken</p>
+                <h2 className="text-3xl sm:text-4xl font-bold text-navy leading-tight">Trusted by Leaders.<br/>Proven in the Field.</h2>
+                <div className="mt-6 space-y-4 text-text-light leading-relaxed">
+                  <p><strong className="text-navy">Ken Satkunam, CISM</strong> is the CEO and Founder of <strong className="text-navy">NorthStar Technology Group</strong>, a 2× Inc. 5000 cybersecurity and managed IT firm based in Fargo, North Dakota.</p>
+                  <p>With 30+ years in information technology — serving as CIO for healthcare organizations as large as 23,000 employees including Banner Health — Ken brings a rare combination of deep technical expertise and executive-level business acumen.</p>
+                  <p>Today, NorthStar secures 100+ organizations across healthcare, legal, and financial services. Ken is a published author, HCCA conference speaker, and creator of the <strong className="text-navy">Protect to Propel™</strong> framework.</p>
+                </div>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  {['CISM Certified', 'HCCA Speaker', 'Published Author', 'Inc. 5000 2×'].map(tag => (
+                    <span key={tag} className="bg-gold/10 text-gold border border-gold/20 text-xs font-semibold px-3 py-1.5 rounded-full">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* SIGNATURE KEYNOTE */}
+      <section id="keynote" className="py-20 sm:py-28 bg-navy text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
+          <img src={IMG.ai} alt="" className="w-full h-full object-cover opacity-15" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/80 to-transparent" />
+        </div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+          <Reveal>
+            <div className="max-w-2xl">
+              <div className="gold-divider mb-6" />
+              <p className="text-gold-light text-sm font-semibold tracking-widest uppercase mb-3">Signature Keynote</p>
+              <h2 className="text-3xl sm:text-4xl font-bold">Protect to Propel™</h2>
+              <p className="mt-4 text-white/60 text-lg">The framework that transforms how leaders think about cybersecurity and AI.</p>
+            </div>
+          </Reveal>
+
+          <div className="grid md:grid-cols-2 gap-8 mt-12">
+            <Reveal>
+              <div className="dark-card rounded-2xl p-8">
+                <h3 className="text-lg font-bold text-red-400 mb-4">The Problem</h3>
+                <p className="text-white/50 mb-3 text-sm">Most businesses treat cybersecurity as:</p>
+                {['An expense to minimize', 'A compliance burden to endure', 'An IT department problem'].map(i => (
+                  <div key={i} className="flex items-center gap-3 text-white/70 text-sm py-1"><span className="w-1.5 h-1.5 bg-red-400 rounded-full" />{i}</div>
+                ))}
+                <p className="text-white/50 mt-4 mb-3 text-sm">And they see AI as:</p>
+                {['Hype they can\'t trust', 'Risky and uncontrollable', 'Overwhelming to implement'].map(i => (
+                  <div key={i} className="flex items-center gap-3 text-white/70 text-sm py-1"><span className="w-1.5 h-1.5 bg-red-400 rounded-full" />{i}</div>
+                ))}
+              </div>
+            </Reveal>
+            <Reveal>
+              <div className="dark-card rounded-2xl p-8 border-gold/20">
+                <h3 className="text-lg font-bold gold-text mb-4">The Shift</h3>
+                <p className="text-white/50 mb-6 text-sm">Security + AI = <strong className="text-white">Growth Acceleration Engine</strong></p>
                 {[
-                  { label: 'CEO & Founder', detail: 'NorthStar Technology Group (est. 2000)' },
-                  { label: 'Certification', detail: 'CISM — Certified Information Security Manager' },
-                  { label: 'Published Author', detail: '"Cyber Attack Prevention" + articles in eWeek & DM News' },
-                  { label: 'Conference Speaker', detail: 'HCCA Compliance Institute, SBAND, industry webinars' },
-                  { label: 'Former CIO', detail: 'Healthcare systems up to 23,000 employees' },
-                  { label: '2× Inc. 5000', detail: 'Recognized 2024 & 2025 for rapid growth' },
-                  { label: 'Proprietary Tools', detail: 'S2Score — NIST/HIPAA/ISO risk assessment framework' },
-                  { label: 'Industries', detail: 'Healthcare, legal, finance, SMB, MSPs' },
-                ].map(({ label, detail }) => (
-                  <div key={label} className="glass-card rounded-xl px-5 py-3.5 flex items-start gap-3">
-                    <CheckIcon className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                  { n: '1', t: 'Protect the Foundation', d: 'Build security posture that gives you confidence to move fast.' },
+                  { n: '2', t: 'Reduce Operational Friction', d: 'Eliminate inefficiencies so your team focuses on what matters.' },
+                  { n: '3', t: 'Propel Growth with Strategic AI', d: 'Deploy AI as a competitive weapon — securely and profitably.' },
+                ].map(({ n, t, d }) => (
+                  <div key={n} className="flex gap-4 items-start mb-5 last:mb-0">
+                    <div className="w-9 h-9 bg-gradient-to-br from-gold to-gold-light rounded-lg flex items-center justify-center font-bold text-sm text-navy shrink-0">{n}</div>
                     <div>
-                      <span className="font-semibold text-white text-sm">{label}</span>
-                      <span className="text-gray-400 text-sm"> — {detail}</span>
+                      <p className="font-bold text-white text-sm">{t}</p>
+                      <p className="text-white/50 text-sm mt-0.5">{d}</p>
                     </div>
                   </div>
                 ))}
@@ -303,95 +257,45 @@ function App() {
         </div>
       </section>
 
-      {/* ─── SIGNATURE KEYNOTE ─── */}
-      <section id="keynote" className="py-16 sm:py-24 bg-surface text-gray-900">
+      {/* SPEAKING TOPICS */}
+      <section id="topics" className="py-20 sm:py-28 bg-warm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <Reveal>
             <div className="text-center max-w-2xl mx-auto mb-14">
-              <p className="text-accent-dark text-sm font-semibold tracking-wider uppercase mb-3">Signature Keynote</p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-midnight">Protect to Propel™</h2>
-              <p className="mt-4 text-gray-500 text-lg">The framework that transforms how leaders think about cybersecurity and AI.</p>
+              <div className="gold-divider mx-auto mb-6" />
+              <p className="text-gold text-sm font-semibold tracking-widest uppercase mb-3">Speaking Topics</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-navy">Talks That Move the Room</h2>
+              <p className="mt-4 text-text-light text-lg">Each topic is customizable to your audience, industry, and event format.</p>
             </div>
           </Reveal>
-
-          {/* The Problem */}
-          <Reveal>
-            <div className="grid md:grid-cols-2 gap-6 mb-10">
-              <div className="bg-midnight rounded-2xl p-8 text-white">
-                <h3 className="text-xl font-bold mb-4 text-red-400">The Problem</h3>
-                <p className="text-gray-400 mb-4">Most businesses treat cybersecurity as:</p>
-                <ul className="space-y-2">
-                  {['An expense to minimize', 'A compliance burden to endure', 'An IT department problem'].map(item => (
-                    <li key={item} className="flex items-center gap-3 text-gray-300 text-sm">
-                      <span className="w-1.5 h-1.5 bg-red-400 rounded-full shrink-0" />{item}
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-gray-400 mt-4 mb-2">And they see AI as:</p>
-                <ul className="space-y-2">
-                  {['Hype they can\'t trust', 'Risky and uncontrollable', 'Overwhelming to implement'].map(item => (
-                    <li key={item} className="flex items-center gap-3 text-gray-300 text-sm">
-                      <span className="w-1.5 h-1.5 bg-red-400 rounded-full shrink-0" />{item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-midnight rounded-2xl p-8 text-white">
-                <h3 className="text-xl font-bold mb-4 gradient-text">The Shift</h3>
-                <p className="text-gray-400 mb-6">Security + AI = <strong className="text-white">Growth Acceleration Engine</strong></p>
-                <div className="space-y-5">
-                  {[
-                    { num: '1', title: 'Protect the Foundation', desc: 'Build the security posture that gives you confidence to move fast.' },
-                    { num: '2', title: 'Reduce Operational Friction', desc: 'Eliminate inefficiencies so your team focuses on what matters.' },
-                    { num: '3', title: 'Propel Growth with Strategic AI', desc: 'Deploy AI as a competitive weapon — securely and profitably.' },
-                  ].map(({ num, title, desc }) => (
-                    <div key={num} className="flex gap-4 items-start">
-                      <div className="w-9 h-9 bg-gradient-to-br from-accent to-accent-dark rounded-lg flex items-center justify-center font-bold text-sm shrink-0">{num}</div>
-                      <div>
-                        <p className="font-bold text-white">{title}</p>
-                        <p className="text-gray-400 text-sm mt-0.5">{desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Reveal>
+          <div className="space-y-4">
+            {TOPICS.map(t => <Reveal key={t.num}><TopicCard {...t} /></Reveal>)}
+          </div>
+          <Reveal><p className="text-center text-text-light text-sm mt-8">All topics available in 30, 45, or 60-minute formats. Custom topics available upon request.</p></Reveal>
         </div>
       </section>
 
-      {/* ─── SPEAKING TOPICS ─── */}
-      <section id="topics" className="py-16 sm:py-24 bg-midnight">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      {/* IMAGE BREAK — cybersecurity */}
+      <section className="relative h-64 sm:h-80 overflow-hidden">
+        <img src={IMG.cyber} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-navy/70" />
+        <div className="absolute inset-0 flex items-center justify-center">
           <Reveal>
-            <div className="text-center max-w-2xl mx-auto mb-14">
-              <p className="text-accent text-sm font-semibold tracking-wider uppercase mb-3">Speaking Topics</p>
-              <h2 className="text-3xl sm:text-4xl font-bold">Talks That Move the Room</h2>
-              <p className="mt-4 text-gray-400 text-lg">Each topic is customizable to your audience, industry, and event format.</p>
-            </div>
-          </Reveal>
-          <div className="space-y-5">
-            {TOPICS.map((topic) => (
-              <Reveal key={topic.num}>
-                <TopicCard {...topic} />
-              </Reveal>
-            ))}
-          </div>
-          <Reveal>
-            <p className="text-center text-gray-500 text-sm mt-8">
-              All topics available in 30, 45, or 60-minute formats. Custom topics available upon request.
+            <p className="text-2xl sm:text-3xl font-bold text-white text-center max-w-xl px-4">
+              "Security isn't a cost center — it's your <span className="gold-text">growth engine</span>."
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* ─── WHY BOOK KEN ─── */}
-      <section className="py-16 sm:py-24 bg-surface text-gray-900">
+      {/* WHY BOOK KEN */}
+      <section className="py-20 sm:py-28 bg-cream">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <Reveal>
             <div className="text-center max-w-2xl mx-auto mb-14">
-              <p className="text-accent-dark text-sm font-semibold tracking-wider uppercase mb-3">For Event Planners</p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-midnight">Why Event Planners Book Ken</h2>
+              <div className="gold-divider mx-auto mb-6" />
+              <p className="text-gold text-sm font-semibold tracking-widest uppercase mb-3">For Event Planners</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-navy">Why Event Planners Book Ken</h2>
             </div>
           </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -400,16 +304,16 @@ function App() {
               { icon: LightIcon, title: 'Practical Takeaways', desc: 'Every audience member leaves with specific, actionable steps — not vague inspiration.' },
               { icon: UsersIcon, title: 'Executive-Friendly', desc: 'Speaks the language of business leaders. No jargon, no fear-mongering, all substance.' },
               { icon: ShieldIcon, title: 'Compliance Credibility', desc: 'CISM certified, HCCA speaker, published author. Your audience trusts the source.' },
-              { icon: ChartIcon, title: 'Tailored to Your Audience', desc: 'Every presentation is customized to audience maturity level, industry, and event goals.' },
+              { icon: ChartIcon, title: 'Tailored Content', desc: 'Every presentation customized to audience maturity level, industry, and event goals.' },
               { icon: StarIcon, title: 'Interactive & Energizing', desc: 'Promotes audience interaction. Leaves the room energized, not overwhelmed.' },
-            ].map(({ icon: IconComp, title, desc }) => (
+            ].map(({ icon: Ic, title, desc }) => (
               <Reveal key={title}>
-                <div className="light-card rounded-2xl p-6 h-full">
-                  <div className="w-11 h-11 bg-accent/10 rounded-xl flex items-center justify-center mb-4">
-                    <IconComp className="w-5 h-5 text-accent-dark" />
+                <div className="elegant-card rounded-2xl p-6 h-full">
+                  <div className="w-11 h-11 bg-gold/10 rounded-xl flex items-center justify-center mb-4">
+                    <Ic className="w-5 h-5 text-gold" />
                   </div>
-                  <h3 className="font-bold text-midnight mb-2">{title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+                  <h3 className="font-bold text-navy mb-2">{title}</h3>
+                  <p className="text-text-light text-sm leading-relaxed">{desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -417,26 +321,25 @@ function App() {
         </div>
       </section>
 
-      {/* ─── TESTIMONIALS ─── */}
-      <section id="testimonials" className="py-16 sm:py-24 bg-midnight-light">
+      {/* TESTIMONIALS */}
+      <section id="testimonials" className="py-20 sm:py-28 bg-navy text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <Reveal>
             <div className="text-center max-w-2xl mx-auto mb-14">
-              <p className="text-accent text-sm font-semibold tracking-wider uppercase mb-3">Testimonials</p>
+              <div className="gold-divider mx-auto mb-6" />
+              <p className="text-gold-light text-sm font-semibold tracking-widest uppercase mb-3">Testimonials</p>
               <h2 className="text-3xl sm:text-4xl font-bold">What People Say</h2>
             </div>
           </Reveal>
           <div className="grid md:grid-cols-2 gap-5">
             {TESTIMONIALS.map(({ quote, name, org }, i) => (
               <Reveal key={i}>
-                <div className="glass-card rounded-2xl p-6 h-full flex flex-col">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, j) => <StarIcon key={j} className="w-4 h-4 text-gold-light" />)}
-                  </div>
-                  <p className="text-gray-300 text-sm leading-relaxed flex-1 italic">"{quote}"</p>
-                  <div className="mt-4 pt-4 border-t border-white/5">
+                <div className="dark-card rounded-2xl p-7 h-full flex flex-col">
+                  <div className="flex gap-1 mb-4">{[...Array(5)].map((_, j) => <StarIcon key={j} className="w-4 h-4 text-gold-light" />)}</div>
+                  <p className="text-white/70 text-sm leading-relaxed flex-1 italic">"{quote}"</p>
+                  <div className="mt-5 pt-4 border-t border-white/5">
                     <p className="text-white font-semibold text-sm">{name}</p>
-                    <p className="text-gray-500 text-xs">{org}</p>
+                    <p className="text-white/40 text-xs">{org}</p>
                   </div>
                 </div>
               </Reveal>
@@ -445,24 +348,24 @@ function App() {
         </div>
       </section>
 
-      {/* ─── SPEAKING FORMATS ─── */}
-      <section className="py-16 sm:py-24 bg-surface text-gray-900">
+      {/* SPEAKING FORMATS */}
+      <section className="py-20 sm:py-28 bg-warm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <Reveal>
             <div className="text-center max-w-2xl mx-auto mb-14">
-              <p className="text-accent-dark text-sm font-semibold tracking-wider uppercase mb-3">Formats</p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-midnight">Speaking Formats</h2>
-              <p className="mt-4 text-gray-500 text-lg">Flexible delivery for any event type or audience size.</p>
+              <div className="gold-divider mx-auto mb-6" />
+              <p className="text-gold text-sm font-semibold tracking-widest uppercase mb-3">Formats</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-navy">Flexible for Any Event</h2>
             </div>
           </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {FORMATS.map(({ name, desc, icon: IconComp }) => (
+            {FORMATS.map(({ name, desc, icon: Ic }) => (
               <Reveal key={name}>
-                <div className="light-card rounded-xl p-5 flex items-start gap-4">
-                  <IconComp className="w-6 h-6 text-accent-dark shrink-0 mt-0.5" />
+                <div className="elegant-card rounded-xl p-5 flex items-start gap-4">
+                  <Ic className="w-6 h-6 text-gold shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="font-bold text-midnight text-sm">{name}</h3>
-                    <p className="text-gray-500 text-xs mt-1 leading-relaxed">{desc}</p>
+                    <h3 className="font-bold text-navy text-sm">{name}</h3>
+                    <p className="text-text-light text-xs mt-1">{desc}</p>
                   </div>
                 </div>
               </Reveal>
@@ -471,85 +374,61 @@ function App() {
         </div>
       </section>
 
-      {/* ─── MEDIA KIT ─── */}
-      <section id="media-kit" className="py-16 sm:py-24 bg-midnight">
+      {/* MEDIA KIT */}
+      <section id="media-kit" className="py-20 sm:py-28 bg-warm-dark">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <Reveal>
-            <div className="glass-card rounded-2xl p-8 sm:p-12 text-center">
-              <DownloadIcon className="w-10 h-10 text-accent mx-auto mb-4" />
-              <h2 className="text-2xl sm:text-3xl font-bold mb-3">Speaker Media Kit</h2>
-              <p className="text-gray-400 max-w-lg mx-auto mb-6">
-                Everything you need to promote Ken's appearance — high-res headshots, bios, topic summaries, AV requirements, and introduction scripts.
-              </p>
-              <div className="grid sm:grid-cols-2 gap-3 max-w-md mx-auto mb-8 text-left">
-                {[
-                  'High-res headshots',
-                  'Short & long bios',
-                  'Topic summaries',
-                  'AV requirements',
-                  'Emcee intro script',
-                  'Logo files',
-                ].map(item => (
-                  <div key={item} className="flex items-center gap-2 text-sm text-gray-400">
-                    <CheckIcon className="w-4 h-4 text-accent shrink-0" />
-                    {item}
-                  </div>
+            <div className="bg-white border border-gray-200 rounded-2xl p-8 sm:p-12 text-center shadow-sm">
+              <DownloadIcon className="w-10 h-10 text-gold mx-auto mb-4" />
+              <h2 className="text-2xl sm:text-3xl font-bold text-navy mb-3">Speaker Media Kit</h2>
+              <p className="text-text-light max-w-lg mx-auto mb-6">High-res headshots, bios, topic summaries, AV requirements, and emcee introduction scripts.</p>
+              <div className="grid sm:grid-cols-2 gap-2 max-w-sm mx-auto mb-8 text-left">
+                {['High-res headshots','Short & long bios','Topic summaries','AV requirements','Emcee intro script','Logo files'].map(item => (
+                  <div key={item} className="flex items-center gap-2 text-sm text-text-light"><CheckIcon className="w-4 h-4 text-gold shrink-0" />{item}</div>
                 ))}
               </div>
-              <a href="/Ken-Satkunam-Speaker-Kit.pdf" download className="btn-accent inline-flex items-center gap-2 text-white font-bold px-8 py-3.5 rounded-xl cursor-pointer">
+              <a href="/Ken-Satkunam-Speaker-Kit.pdf" download className="btn-gold inline-flex items-center gap-2 text-white font-bold px-8 py-3.5 rounded-xl">
                 <DownloadIcon className="w-5 h-5" />
                 Download Media Kit (PDF)
               </a>
-              <p className="text-gray-600 text-xs mt-3">PDF · Includes all assets</p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ─── CTA / CONTACT ─── */}
-      <section id="contact" className="py-16 sm:py-24 bg-midnight-light relative overflow-hidden">
-        <div className="absolute top-10 left-[20%] w-80 h-80 bg-accent/8 rounded-full blur-[100px]" />
-        <div className="absolute bottom-10 right-[20%] w-64 h-64 bg-blue-500/5 rounded-full blur-[80px]" />
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center relative">
+      {/* CTA — image background */}
+      <section className="relative py-24 sm:py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={IMG.business} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-navy/85" />
+        </div>
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <Reveal>
-            <h2 className="text-3xl sm:text-4xl font-bold">Bring Protect to Propel™<br/>to Your Audience</h2>
-            <p className="mt-4 text-gray-400 text-lg max-w-2xl mx-auto">
-              Whether it's a keynote, workshop, or private briefing — Ken delivers practical, executive-level content that moves the room.
-            </p>
+            <div className="gold-divider mx-auto mb-6" />
+            <h2 className="text-3xl sm:text-4xl font-bold text-white">Bring Protect to Propel™<br/>to Your Audience</h2>
+            <p className="mt-4 text-white/60 text-lg max-w-2xl mx-auto">Keynote, workshop, or private briefing — Ken delivers practical, executive-level content that moves the room.</p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-              <PopupButton
-                url={CALENDLY_URL}
-                rootElement={document.getElementById('root')}
-                text="Request Availability →"
-                className="btn-accent text-white font-bold px-8 py-4 rounded-xl text-lg cursor-pointer"
-              />
-              <a href={`mailto:${EMAIL}`} className="btn-outline inline-flex items-center justify-center gap-2 text-gray-300 hover:text-white font-semibold px-8 py-4 rounded-xl text-lg">
-                <MailIcon className="w-5 h-5" />
-                {EMAIL}
+              <PopupButton url={CALENDLY_URL} rootElement={document.getElementById('root')} text="Request Availability →" className="btn-gold text-white font-bold px-8 py-4 rounded-xl text-lg cursor-pointer" />
+              <a href={`mailto:${EMAIL}`} className="inline-flex items-center justify-center gap-2 border border-white/20 hover:border-white/40 text-white font-semibold px-8 py-4 rounded-xl text-lg transition">
+                <MailIcon className="w-5 h-5" />{EMAIL}
               </a>
             </div>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-500">
-              <div className="flex items-center gap-2">
-                <PhoneIcon className="w-4 h-4 text-accent" />
-                <a href={`tel:${PHONE.replace(/\D/g,'')}`} className="hover:text-white transition">{PHONE}</a>
-              </div>
-              <div className="flex items-center gap-2">
-                <UsersIcon className="w-4 h-4 text-accent" />
-                <span>Booking Contact: <strong className="text-gray-300">Noah Satkunam</strong></span>
-              </div>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/40">
+              <div className="flex items-center gap-2"><PhoneIcon className="w-4 h-4 text-gold" /><a href={`tel:${PHONE.replace(/\D/g,'')}`} className="hover:text-white transition">{PHONE}</a></div>
+              <div className="flex items-center gap-2"><UsersIcon className="w-4 h-4 text-gold" /><span>Booking: <strong className="text-white/70">Noah Satkunam</strong></span></div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ─── FOOTER ─── */}
-      <footer className="py-8 bg-midnight border-t border-white/5 text-gray-500 text-sm">
+      {/* FOOTER */}
+      <footer className="py-8 bg-navy border-t border-white/5 text-white/40 text-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>© {new Date().getFullYear()} Ken Satkunam · NorthStar Technology Group · Fargo, ND</div>
           <div className="flex items-center gap-4">
-            <a href={`mailto:${EMAIL}`} className="hover:text-accent transition">{EMAIL}</a>
+            <a href={`mailto:${EMAIL}`} className="hover:text-gold transition">{EMAIL}</a>
             <span className="text-white/10">·</span>
-            <a href={`tel:${PHONE.replace(/\D/g,'')}`} className="hover:text-accent transition">{PHONE}</a>
+            <a href={`tel:${PHONE.replace(/\D/g,'')}`} className="hover:text-gold transition">{PHONE}</a>
           </div>
         </div>
       </footer>
@@ -557,21 +436,19 @@ function App() {
   )
 }
 
-/* ─── Topic Card ─── */
-function TopicCard({ num, title, tag, audience, duration, desc, takeaways, icon: IconComp }) {
+/* Topic Card */
+function TopicCard({ num, title, tag, audience, duration, desc, takeaways, icon: Ic }) {
   const [open, setOpen] = useState(false)
   return (
-    <div className={`glass-card rounded-2xl overflow-hidden transition-all duration-300 ${open ? 'border-accent/30' : ''}`}>
+    <div className={`elegant-card rounded-2xl overflow-hidden ${open ? 'border-gold/40 shadow-lg' : ''}`}>
       <button onClick={() => setOpen(!open)} className="w-full px-6 py-5 flex items-center gap-5 text-left">
-        <div className="w-12 h-12 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center font-bold text-sm shrink-0">
-          {num}
-        </div>
+        <div className="w-12 h-12 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center font-bold text-sm text-navy shrink-0">{num}</div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 flex-wrap">
-            <h3 className="font-bold text-lg text-white">{title}</h3>
-            <span className="text-xs font-semibold bg-accent/15 text-accent px-2.5 py-0.5 rounded-full">{tag}</span>
+            <h3 className="font-bold text-lg text-navy">{title}</h3>
+            <span className="text-xs font-semibold bg-gold/10 text-gold px-2.5 py-0.5 rounded-full border border-gold/20">{tag}</span>
           </div>
-          <div className="flex items-center gap-4 mt-1 text-xs text-gray-500">
+          <div className="flex items-center gap-4 mt-1 text-xs text-text-light">
             <span className="flex items-center gap-1"><UsersIcon className="w-3.5 h-3.5" />{audience}</span>
             <span className="flex items-center gap-1"><ClockIcon className="w-3.5 h-3.5" />{duration}</span>
           </div>
@@ -581,16 +458,12 @@ function TopicCard({ num, title, tag, audience, duration, desc, takeaways, icon:
         </svg>
       </button>
       <div className={`overflow-hidden transition-all duration-300 ${open ? 'max-h-96' : 'max-h-0'}`}>
-        <div className="px-6 pb-6 pt-0">
-          <p className="text-gray-400 text-sm leading-relaxed mb-4">{desc}</p>
-          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Key Takeaways</p>
-          <ul className="space-y-1.5">
-            {takeaways.map(t => (
-              <li key={t} className="flex items-start gap-2 text-sm text-gray-300">
-                <CheckIcon className="w-4 h-4 text-accent shrink-0 mt-0.5" />{t}
-              </li>
-            ))}
-          </ul>
+        <div className="px-6 pb-6">
+          <p className="text-text-light text-sm leading-relaxed mb-4">{desc}</p>
+          <p className="text-xs font-semibold text-text-light uppercase tracking-wider mb-2">Key Takeaways</p>
+          {takeaways.map(t => (
+            <div key={t} className="flex items-start gap-2 text-sm text-text py-1"><CheckIcon className="w-4 h-4 text-gold shrink-0 mt-0.5" />{t}</div>
+          ))}
         </div>
       </div>
     </div>
