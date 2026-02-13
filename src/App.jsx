@@ -496,7 +496,7 @@ function App() {
                   </div>
                 ))}
               </div>
-              <a href="#" className="btn-accent inline-flex items-center gap-2 text-white font-bold px-8 py-3.5 rounded-xl cursor-pointer">
+              <a href="/Ken-Satkunam-Speaker-Kit.pdf" download className="btn-accent inline-flex items-center gap-2 text-white font-bold px-8 py-3.5 rounded-xl cursor-pointer">
                 <DownloadIcon className="w-5 h-5" />
                 Download Media Kit (PDF)
               </a>
